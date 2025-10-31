@@ -40,7 +40,12 @@ var APP_DATA = {
           "target": "1-img_20251030_194439_00_047"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [{
+    "yaw": 0.5,
+    "pitch": -0.2,
+    "title": "Kitchen Countertop",
+    "text": "<img src='Detailed_IMGs/tester.png' style='max-width: 100%; height: auto;'><p>Granite countertops with stainless steel appliances</p>"
+  }]
     },
     {
       "id": "1-img_20251030_194439_00_047",
