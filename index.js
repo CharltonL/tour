@@ -15,6 +15,9 @@
  */
 'use strict';
 
+// FILE UPDATED - Version 2024-10-31
+console.log('=== CUSTOM INDEX.JS LOADED - VIEW PRESERVATION ENABLED ===');
+
 (function() {
   var Marzipano = window.Marzipano;
   var bowser = window.bowser;
@@ -182,10 +185,28 @@
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
   }
 
-  function switchScene(scene) {
+  function switchScene(scene, preserveView) {
+    console.log('switchScene called, preserveView=' + preserveView);
+    
+    var savedView = null;
+    if (preserveView) {
+      savedView = viewer.view().parameters();
+      console.log('Saving current view:', savedView.yaw, savedView.pitch);
+    }
+    
     stopAutorotate();
     scene.view.setParameters(scene.data.initialViewParameters);
     scene.scene.switchTo();
+    
+    if (preserveView && savedView) {
+      console.log('Applying saved view to new scene');
+      scene.view.setParameters({
+        yaw: savedView.yaw,
+        pitch: savedView.pitch,
+        fov: savedView.fov
+      });
+    }
+    
     startAutorotate();
     updateSceneName(scene);
     updateSceneList(scene);
@@ -265,7 +286,8 @@
 
     // Add click event handler.
     wrapper.addEventListener('click', function() {
-      switchScene(findSceneById(hotspot.target));
+      console.log('Link hotspot clicked!');
+      switchScene(findSceneById(hotspot.target), true);
     });
 
     // Prevent touch and scroll events from reaching the parent element.
