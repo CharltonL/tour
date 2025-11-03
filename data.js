@@ -190,7 +190,8 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {"yaw": -0.4804, "pitch": -0.0051, "images": ["Detailed_IMGs/IMG_1156.jpg", "Detailed_IMGs/IMG_1155.jpg"]},
-        {"yaw": -1.8733, "pitch": -0.1813, "images": ["Detailed_IMGs/IMG_1161.jpg"]}
+        {"yaw": -1.8733, "pitch": -0.1813, "images": ["Detailed_IMGs/IMG_1161.jpg"]},
+        {"yaw": 2.6519, "pitch": -0.1620, "images": ["Detailed_IMGs/IMG_1303.jpg"]}
       ]
     },
     {
@@ -298,6 +299,7 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {"yaw": 0.7948, "pitch": -0.3394, "images": ["Detailed_IMGs/IMG_1165.jpg", "Detailed_IMGs/IMG_1166.jpg"]},
+        {"yaw": -1.5435, "pitch": -1.4765, "images": ["Detailed_IMGs/IMG_1301.jpg"]}
       ]
     },
     {
@@ -718,7 +720,7 @@ var APP_DATA = {
       ],
       "infoHotspots": [
         {"yaw": 2.8422, "pitch": -0.0719, "images": ["Detailed_IMGs/IMG_1195.jpg"]},
-
+        {"yaw": -2.6571, "pitch": -0.7084, "images": ["Detailed_IMGs/IMG_1197.jpg"]}
       ]
     },
     {
@@ -1060,7 +1062,12 @@ var APP_DATA = {
           "target": "15-img_20251030_195556_00_062"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": -1.6963, "pitch": -0.1193, "images": ["Detailed_IMGs/IMG_1291.jpg"]},
+        {"yaw": -2.8519, "pitch": -0.3713, "images": ["Detailed_IMGs/IMG_1292.jpg"]},
+        {"yaw": 2.3782, "pitch": -0.1629,  "images": ["Detailed_IMGs/IMG_1293.jpg"]},
+        {"yaw": -0.1741, "pitch": -0.4114 , "images": ["Detailed_IMGs/IMG_1294.jpg"]}
+      ]
     },
     {
       "id": "18-img_20251030_195814_00_067",
