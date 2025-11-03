@@ -88,7 +88,9 @@ var APP_DATA = {
           "target": "0-img_20251030_194401_00_046"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [{
+        "yaw": -2.6869,  "pitch": -0.1671, "images": ["Detailed_IMGs/IMG_1158.jpg", "Detailed_IMGs/IMG_1157.jpg" ]
+      }, {"yaw": 1.5802,  "pitch": -1.0645, "images": ["Detailed_IMGs/IMG_1154.jpg"]}]
     },
     {
       "id": "2-img_20251030_194520_00_048",
@@ -136,7 +138,9 @@ var APP_DATA = {
           "target": "1-img_20251030_194439_00_047"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [{
+        "yaw": -0.5385, "pitch": -0.0173, "images": ["Detailed_IMGs/IMG_1156.jpg", "Detailed_IMGs/IMG_1155.jpg"]
+      }, {"yaw": 2.4569, "pitch": -0.5856, "images": ["Detailed_IMGs/IMG_1159.jpg"]}]
     },
     {
       "id": "3-img_20251030_194603_00_049",
@@ -184,7 +188,10 @@ var APP_DATA = {
           "target": "2-img_20251030_194520_00_048"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": -0.4804, "pitch": -0.0051, "images": ["Detailed_IMGs/IMG_1156.jpg", "Detailed_IMGs/IMG_1155.jpg"]},
+        {"yaw": -1.8733, "pitch": -0.1813, "images": ["Detailed_IMGs/IMG_1161.jpg"]}
+      ]
     },
     {
       "id": "4-img_20251030_194708_00_051",
@@ -238,7 +245,10 @@ var APP_DATA = {
           "target": "6-img_20251030_194814_00_053"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.3215, "pitch": -0.0069, "images": ["Detailed_IMGs/IMG_1162.jpg"]},
+        {"yaw": 2.1432, "pitch": -0.0704, "images": ["Detailed_IMGs/IMG_1164.jpg"]}
+      ]
     },
     {
       "id": "5-img_20251030_194745_00_052",
@@ -286,7 +296,9 @@ var APP_DATA = {
           "target": "4-img_20251030_194708_00_051"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 0.7948, "pitch": -0.3394, "images": ["Detailed_IMGs/IMG_1165.jpg", "Detailed_IMGs/IMG_1166.jpg"]},
+      ]
     },
     {
       "id": "6-img_20251030_194814_00_053",
@@ -346,7 +358,7 @@ var APP_DATA = {
           "target": "9-img_20251030_195109_00_056"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [{"yaw": 0.0025, "pitch": -0.7086, "text": "To Be Imaged"}]
     },
     {
       "id": "7-img_20251030_194858_00_054",
@@ -388,7 +400,14 @@ var APP_DATA = {
           "target": "6-img_20251030_194814_00_053"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 0.3016, "pitch": -0.1353, "images": ["Detailed_IMGs/IMG_1167.jpg", "Detailed_IMGs/IMG_1168.jpg"]},
+        {"yaw": -0.7243, "pitch": 0.0192, "images": ["Detailed_IMGs/IMG_1169.jpg"]},
+        {"yaw": -2.7034, "pitch": -0.1794, "images": ["Detailed_IMGs/IMG_1170.jpg"]},
+        {"yaw": -2.9736, "pitch": -0.1044, "images": ["Detailed_IMGs/IMG_1171.jpg"]},
+        {"yaw": 3.0385, "pitch": 0.3719, "images": ["Detailed_IMGs/IMG_1172.jpg"]},
+        {"yaw": 2.6128, "pitch": 0.0508, "images": ["Detailed_IMGs/IMG_1173.jpg", "Detailed_IMGs/IMG_1174.jpg", "Detailed_IMGs/IMG_1175.jpg"]}
+      ]
     },
     {
       "id": "8-img_20251030_194921_00_055",
@@ -562,7 +581,12 @@ var APP_DATA = {
           "target": "8-img_20251030_194921_00_055"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.7887, "pitch": 0.0956, "images": ["Detailed_IMGs/IMG_1179.jpg", "Detailed_IMGs/IMG_1180.jpg", "Detailed_IMGs/IMG_1181.jpg"]},
+        {"yaw": -2.8667, "pitch": 0.1789, "images": ["Detailed_IMGs/IMG_1182.jpg", "Detailed_IMGs/IMG_1183.jpg"]},
+        {"yaw": -2.6064, "pitch": -0.2286, "images": ["Detailed_IMGs/IMG_1185.jpg"]},
+        {"yaw": -2.4659, "pitch": -0.1596, "images": ["Detailed_IMGs/IMG_1188.jpg"]}
+      ]
     },
     {
       "id": "11-img_20251030_195234_00_058",
@@ -628,7 +652,11 @@ var APP_DATA = {
           "target": "8-img_20251030_194921_00_055"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.6248, "pitch": -0.0643, "images": ["Detailed_IMGs/IMG_1189.jpg", "Detailed_IMGs/IMG_1190.jpg"]},
+        {"yaw": 3.0606, "pitch": -0.2435, "images": ["Detailed_IMGs/IMG_1192.jpg"]},
+        {"yaw": -2.8382, "pitch": -0.1918, "images": ["Detailed_IMGs/IMG_1194.jpg"]}
+      ]
     },
     {
       "id": "12-img_20251030_195430_00_059",
@@ -688,7 +716,10 @@ var APP_DATA = {
           "target": "10-img_20251030_195202_00_057"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.8422, "pitch": -0.0719, "images": ["Detailed_IMGs/IMG_1195.jpg"]},
+
+      ]
     },
     {
       "id": "13-img_20251030_195503_00_060",
@@ -748,7 +779,10 @@ var APP_DATA = {
           "target": "11-img_20251030_195234_00_058"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": -2.8803, "pitch": -0.2168, "images": ["Detailed_IMGs/IMG_1196.jpg"]},
+
+      ]
     },
     {
       "id": "14-img_20251030_195531_00_061",
@@ -808,7 +842,13 @@ var APP_DATA = {
           "target": "12-img_20251030_195430_00_059"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": -3.0048, "pitch": 0.3148, "images": ["Detailed_IMGs/IMG_1199.jpg"]},
+        {"yaw": -2.1657, "pitch": 0.0487, "images": ["Detailed_IMGs/IMG_1204.jpg"]},
+        {"yaw": 2.8126, "pitch": -0.2543, "images": ["Detailed_IMGs/IMG_1198.jpg"]},
+        {"yaw": -3.0895, "pitch": -0.2868, "images": ["Detailed_IMGs/IMG_1201.jpg"]},
+        {"yaw": -2.7130, "pitch": -0.2338, "images": ["Detailed_IMGs/IMG_1203.jpg"]} 
+      ]
     },
     {
       "id": "15-img_20251030_195556_00_062",
@@ -874,7 +914,12 @@ var APP_DATA = {
           "target": "12-img_20251030_195430_00_059"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.9932, "pitch": 0.0202, "images": ["Detailed_IMGs/IMG_1204.jpg"]},
+        {"yaw": -2.5593, "pitch": -0.2200, "images": ["Detailed_IMGs/IMG_1205.jpg"]},
+        {"yaw": -2.5746, "pitch": 0.1463, "images": ["Detailed_IMGs/IMG_1207.jpg"]}
+        
+      ]
     },
     {
       "id": "16-img_20251030_195632_00_064",
@@ -934,7 +979,10 @@ var APP_DATA = {
           "target": "14-img_20251030_195531_00_061"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 3.0095, "pitch": 0.1947, "images": ["Detailed_IMGs/IMG_1208.jpg"]},
+        {"yaw": -2.2768, "pitch": 0.0227, "images": ["Detailed_IMGs/IMG_1209.jpg"]}
+      ]
     },
     {
       "id": "17-img_20251030_195746_00_066",
@@ -1078,7 +1126,10 @@ var APP_DATA = {
           "target": "22-img_20251030_200446_00_080"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.0323, "pitch": 0.0766, "images": ["Detailed_IMGs/IMG_1211.jpg"]},
+        {"yaw": 1.7680, "pitch": 0.0046, "images": ["Detailed_IMGs/IMG_1210.jpg"]}
+      ]
     },
     {
       "id": "19-img_20251030_195853_00_068",
@@ -1138,7 +1189,10 @@ var APP_DATA = {
           "target": "17-img_20251030_195746_00_066"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": 2.5975, "pitch": 0.0108, "images": ["Detailed_IMGs/IMG_1210.jpg", "Detailed_IMGs/IMG_1211.jpg"]},
+        
+      ]
     },
     {
       "id": "20-img_20251030_195931_00_069",
@@ -1240,7 +1294,11 @@ var APP_DATA = {
           "target": "19-img_20251030_195853_00_068"
         }
       ],
-      "infoHotspots": []
+      "infoHotspots": [
+        {"yaw": -0.7066, "pitch": 0.0719, "images": ["Detailed_IMGs/IMG_1219.jpg"]},
+        {"yaw": -1.0161, "pitch": 0.0263, "images": ["Detailed_IMGs/IMG_1215.jpg"]},
+        {"yaw": -1.3852, "pitch": -0.0812, "images": ["Detailed_IMGs/IMG_1216.jpg", "Detailed_IMGs/IMG_1217.jpg", "Detailed_IMGs/IMG_1218.jpg"]},
+      ]
     },
     {
       "id": "22-img_20251030_200446_00_080",

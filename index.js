@@ -346,24 +346,159 @@ console.log('=== CUSTOM INDEX.JS LOADED - VIEW PRESERVATION ENABLED ===');
     header.appendChild(titleWrapper);
     header.appendChild(closeWrapper);
 
-    // Create text element.
+    // Create text/content element with carousel support
     var text = document.createElement('div');
     text.classList.add('info-hotspot-text');
-    text.innerHTML = hotspot.text;
+    
+    // Check if hotspot has images array for carousel
+    if (hotspot.images && Array.isArray(hotspot.images) && hotspot.images.length > 0) {
+      // Create carousel
+      var carousel = document.createElement('div');
+      carousel.classList.add('carousel-container');
+      carousel.style.cssText = 'position: relative; width: 100%; max-width: 800px; margin: 0 auto;';
+      
+      // Create image container
+      var imageContainer = document.createElement('div');
+      imageContainer.classList.add('carousel-images');
+      imageContainer.style.cssText = 'position: relative; width: 100%; overflow: hidden;';
+      
+      // Add all images
+      hotspot.images.forEach(function(imgSrc, index) {
+        var img = document.createElement('img');
+        img.src = imgSrc;
+        img.classList.add('carousel-image');
+        img.style.cssText = 'width: 100%; height: auto; display: ' + (index === 0 ? 'block' : 'none') + '; border-radius: 8px;';
+        img.setAttribute('data-index', index);
+        imageContainer.appendChild(img);
+      });
+      
+      carousel.appendChild(imageContainer);
+      
+      // Add navigation buttons if more than one image
+      if (hotspot.images.length > 1) {
+        var prevBtn = document.createElement('button');
+        prevBtn.innerHTML = '‹';
+        prevBtn.classList.add('carousel-btn', 'carousel-prev');
+        prevBtn.style.cssText = 'position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: white; border: none; font-size: 32px; padding: 10px 15px; cursor: pointer; border-radius: 4px; z-index: 10;';
+        
+        var nextBtn = document.createElement('button');
+        nextBtn.innerHTML = '›';
+        nextBtn.classList.add('carousel-btn', 'carousel-next');
+        nextBtn.style.cssText = 'position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.7); color: white; border: none; font-size: 32px; padding: 10px 15px; cursor: pointer; border-radius: 4px; z-index: 10;';
+        
+        // Add counter
+        var counter = document.createElement('div');
+        counter.classList.add('carousel-counter');
+        counter.style.cssText = 'text-align: center; margin-top: 10px; color: #fff; font-size: 14px;';
+        counter.innerHTML = '1 / ' + hotspot.images.length;
+        
+        var currentIndex = 0;
+        
+        function showImage(index) {
+          var images = imageContainer.querySelectorAll('.carousel-image');
+          images.forEach(function(img, i) {
+            img.style.display = i === index ? 'block' : 'none';
+          });
+          counter.innerHTML = (index + 1) + ' / ' + hotspot.images.length;
+          currentIndex = index;
+        }
+        
+        prevBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var newIndex = currentIndex > 0 ? currentIndex - 1 : hotspot.images.length - 1;
+          showImage(newIndex);
+        });
+        
+        nextBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          var newIndex = currentIndex < hotspot.images.length - 1 ? currentIndex + 1 : 0;
+          showImage(newIndex);
+        });
+        
+        carousel.appendChild(prevBtn);
+        carousel.appendChild(nextBtn);
+        carousel.appendChild(counter);
+      }
+      
+      text.appendChild(carousel);
+      
+      // Add description if provided
+      if (hotspot.text) {
+        var description = document.createElement('p');
+        description.innerHTML = hotspot.text;
+        description.style.cssText = 'margin-top: 15px; color: #fff;';
+        text.appendChild(description);
+      }
+    } else {
+      // No carousel, use original text/HTML
+      text.innerHTML = hotspot.text;
+    }
 
     // Place header and text into wrapper element.
     wrapper.appendChild(header);
     wrapper.appendChild(text);
+    
+    // Add resize indicator to the text element (so it stays within the background)
+    var resizeIndicator = document.createElement('div');
+    resizeIndicator.classList.add('resize-indicator');
+    resizeIndicator.innerHTML = '<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M15 11L11 15M15 6L6 15M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>' +
+      '</svg>';
+    text.appendChild(resizeIndicator);
 
-    // Create a modal for the hotspot content to appear on mobile mode.
+    // Create a modal for mobile (not used on desktop)
     var modal = document.createElement('div');
-    modal.innerHTML = wrapper.innerHTML;
     modal.classList.add('info-hotspot-modal');
+    
+    // Clone the content for mobile modal
+    var modalHeader = header.cloneNode(true);
+    var modalText = text.cloneNode(true);
+    modal.appendChild(modalHeader);
+    modal.appendChild(modalText);
+    
+    // Re-setup carousel in modal if it exists
+    if (hotspot.images && Array.isArray(hotspot.images) && hotspot.images.length > 1) {
+      var modalPrevBtn = modal.querySelector('.carousel-prev');
+      var modalNextBtn = modal.querySelector('.carousel-next');
+      var modalImageContainer = modal.querySelector('.carousel-images');
+      var modalCounter = modal.querySelector('.carousel-counter');
+      var modalCurrentIndex = 0;
+      
+      function modalShowImage(index) {
+        var images = modalImageContainer.querySelectorAll('.carousel-image');
+        images.forEach(function(img, i) {
+          img.style.display = i === index ? 'block' : 'none';
+        });
+        modalCounter.innerHTML = (index + 1) + ' / ' + hotspot.images.length;
+        modalCurrentIndex = index;
+      }
+      
+      modalPrevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var newIndex = modalCurrentIndex > 0 ? modalCurrentIndex - 1 : hotspot.images.length - 1;
+        modalShowImage(newIndex);
+      });
+      
+      modalNextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var newIndex = modalCurrentIndex < hotspot.images.length - 1 ? modalCurrentIndex + 1 : 0;
+        modalShowImage(newIndex);
+      });
+    }
+    
     document.body.appendChild(modal);
 
     var toggle = function() {
+      var isVisible = wrapper.classList.contains('visible');
+      
       wrapper.classList.toggle('visible');
       modal.classList.toggle('visible');
+      
+      // If closing (was visible), reset the wrapper size
+      if (isVisible) {
+        wrapper.style.width = '';
+        wrapper.style.height = '';
+      }
     };
 
     // Show content when hotspot is clicked.
@@ -381,13 +516,60 @@ console.log('=== CUSTOM INDEX.JS LOADED - VIEW PRESERVATION ENABLED ===');
 
   // Prevent touch and scroll events from reaching the parent element.
   function stopTouchAndScrollEventPropagation(element, eventList) {
-    var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
-                      'wheel', 'mousewheel' ];
-    for (var i = 0; i < eventList.length; i++) {
-      element.addEventListener(eventList[i], function(event) {
+    var isDraggingInside = false;
+    
+    // Always block these events
+    var alwaysBlockEvents = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
+                              'wheel', 'mousewheel', 'click', 'drag', 'dragstart' ];
+    
+    for (var i = 0; i < alwaysBlockEvents.length; i++) {
+      element.addEventListener(alwaysBlockEvents[i], function(event) {
         event.stopPropagation();
       });
     }
+    
+    // Track mousedown inside the modal
+    element.addEventListener('mousedown', function(event) {
+      isDraggingInside = true;
+      event.stopPropagation();
+    });
+    
+    element.addEventListener('pointerdown', function(event) {
+      isDraggingInside = true;
+      event.stopPropagation();
+    });
+    
+    // Only block mousemove/mouseup if drag started inside
+    element.addEventListener('mousemove', function(event) {
+      if (isDraggingInside) {
+        event.stopPropagation();
+      }
+    });
+    
+    element.addEventListener('mouseup', function(event) {
+      if (isDraggingInside) {
+        event.stopPropagation();
+      }
+      isDraggingInside = false;
+    });
+    
+    element.addEventListener('pointermove', function(event) {
+      if (isDraggingInside) {
+        event.stopPropagation();
+      }
+    });
+    
+    element.addEventListener('pointerup', function(event) {
+      if (isDraggingInside) {
+        event.stopPropagation();
+      }
+      isDraggingInside = false;
+    });
+    
+    // Reset flag if mouse leaves during drag (safety)
+    element.addEventListener('mouseleave', function(event) {
+      isDraggingInside = false;
+    });
   }
 
   function findSceneById(id) {
@@ -410,5 +592,17 @@ console.log('=== CUSTOM INDEX.JS LOADED - VIEW PRESERVATION ENABLED ===');
 
   // Display the initial scene.
   switchScene(scenes[0]);
+
+  // ============================================
+  // COORDINATE LOGGER - Click anywhere to get yaw/pitch for hotspots
+  // ============================================
+  panoElement.addEventListener('click', function(event) {
+    var view = viewer.view();
+    var coords = view.screenToCoordinates({x: event.clientX, y: event.clientY});
+    if (coords) {
+      console.log('=====================================');
+      console.log('  "yaw": ' + coords.yaw.toFixed(4) + ',' +' "pitch": ' + coords.pitch.toFixed(4));
+    }
+  });
 
 })();
