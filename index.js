@@ -591,7 +591,7 @@ console.log('=== CUSTOM INDEX.JS LOADED - VIEW PRESERVATION ENABLED ===');
   }
 
   // Display the initial scene.
-  switchScene(scenes[0]);
+  switchScene(scenes[7]);
 
   // ============================================
   // COORDINATE LOGGER - Click anywhere to get yaw/pitch for hotspots
